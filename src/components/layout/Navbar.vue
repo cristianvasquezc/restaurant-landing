@@ -21,7 +21,7 @@ const navLinks: NavLink[] = [
 
 <template>
     <nav class="w-full bg-black text-white flex justify-center py-2">
-        <n-flex class="w-full max-w-5xl" justify="space-between" align="center">
+        <n-flex class="w-full max-w-6xl" justify="space-between" align="center">
             <n-flex>
                 <RouterLink v-for="link in navLinks" :key="link.to" :to="link.to"
                     active-class="text-white font-semibold">
