@@ -7,7 +7,7 @@ import Navbar from '@/components/layout/Navbar.vue';
 <template>
     <div>
         <Navbar />
-        <main>
+        <main class="w-full px-2">
             <slot />
         </main>
         <Footer />
