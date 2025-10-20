@@ -56,11 +56,11 @@ onMounted(() => {
     <nav class="w-full bg-black text-white flex justify-center py-2 px-5 sticky top-0 z-50">
         <n-flex class="w-full max-w-6xl" justify="space-between" align="center">
             <n-flex>
-                <button v-for="link in navLinks" :key="link.to" @click="scrollTo(link.to)" class="transition px-3 py-1"
+                <button v-for="link in navLinks" :key="link.to" @click="scrollTo(link.to)" class="transition-colors"
                     :class="[
                         activeSection === link.to
                             ? 'text-white font-semibold'
-                            : 'text-gray-200 hover:text-white'
+                            : 'text-gray-300 hover:text-white'
                     ]">
                     {{ link.label }}
                 </button>
