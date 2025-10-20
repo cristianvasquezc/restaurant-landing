@@ -10,7 +10,7 @@ const props = defineProps<{
 
 const subtitleClass = computed(() =>
     twMerge(
-        'font-bold text-3xl md:text-5xl text-white mb-5',
+        'font-bold text-2xl md:text-4xl text-white mb-5',
         props.align ? `text-${props.align}` : 'text-center',
         props.class
     )
