@@ -5,11 +5,13 @@ import { Discord, Facebook, Linkedin, Twitter } from '@vicons/fa';
 </script>
 
 <template>
-    <footer class="bg-secondary text-white flex justify-center py-10 px-2">
+    <footer class="bg-secondary text-white flex justify-center py-20 px-5">
         <div class="w-full max-w-6xl space-y-10">
-            <n-grid x-gap="12" cols="1 s:4" responsive="screen">
+            <n-grid x-gap="12" y-gap="20" cols="1 s:4" responsive="screen">
                 <n-gi>
-                    <n-h3>Our Products</n-h3>
+                    <h3 class="text-lg font-semibold mb-3">
+                        Our Products
+                    </h3>
                     <ul>
                         <li>
                             Our Menu
@@ -26,7 +28,9 @@ import { Discord, Facebook, Linkedin, Twitter } from '@vicons/fa';
                     </ul>
                 </n-gi>
                 <n-gi>
-                    <n-h3>legal information</n-h3>
+                    <h3 class="text-lg font-semibold mb-3">
+                        legal information
+                    </h3>
                     <ul>
                         <li>
                             Legal Notice
@@ -34,7 +38,9 @@ import { Discord, Facebook, Linkedin, Twitter } from '@vicons/fa';
                     </ul>
                 </n-gi>
                 <n-gi>
-                    <n-h3>Contact us</n-h3>
+                    <h3 class="text-lg font-semibold mb-3">
+                        Contact us
+                    </h3>
                     <ul>
                         <li>
                             Contacts
@@ -48,7 +54,9 @@ import { Discord, Facebook, Linkedin, Twitter } from '@vicons/fa';
                     </ul>
                 </n-gi>
                 <n-gi>
-                    <n-h3>We accept</n-h3>
+                    <h3 class="text-lg font-semibold mb-3">
+                        We accept
+                    </h3>
                     <n-flex size="large">
                         <PaymentLogo name="mastercard" />
                         <PaymentLogo name="visa" />
@@ -57,7 +65,8 @@ import { Discord, Facebook, Linkedin, Twitter } from '@vicons/fa';
                 </n-gi>
             </n-grid>
 
-            <n-flex justify="space-between" align="center" class="border-t border-tertiary pt-3">
+            <div
+                class="w-full flex flex-col sm:flex-row items-center justify-between gap-5 border-t border-tertiary pt-3">
                 <n-flex>
                     <n-icon class="text-lg">
                         <Facebook />
@@ -73,7 +82,7 @@ import { Discord, Facebook, Linkedin, Twitter } from '@vicons/fa';
                     </n-icon>
                 </n-flex>
                 <p>© {{ new Date().getFullYear() }} Nayef All rights reserved.</p>
-            </n-flex>
+            </div>
         </div>
     </footer>
 </template>
