@@ -12,46 +12,46 @@ import { Discord, Facebook, Linkedin, Twitter } from '@vicons/fa';
                     <h3 class="text-lg font-semibold mb-3">
                         Our Products
                     </h3>
-                    <ul>
-                        <li>
+                    <n-ul align-text>
+                        <n-li>
                             Our Menu
-                        </li>
-                        <li>
+                        </n-li>
+                        <n-li>
                             Our burgers
-                        </li>
-                        <li>
-                            Our times sides
-                        </li>
-                        <li>
+                        </n-li>
+                        <n-li>
+                            Our fries
+                        </n-li>
+                        <n-li>
                             Our sandwiches
-                        </li>
-                    </ul>
+                        </n-li>
+                    </n-ul>
                 </n-gi>
                 <n-gi>
                     <h3 class="text-lg font-semibold mb-3">
                         legal information
                     </h3>
-                    <ul>
-                        <li>
+                    <n-ul align-text>
+                        <n-li>
                             Legal Notice
-                        </li>
-                    </ul>
+                        </n-li>
+                    </n-ul>
                 </n-gi>
                 <n-gi>
                     <h3 class="text-lg font-semibold mb-3">
                         Contact us
                     </h3>
-                    <ul>
-                        <li>
+                    <n-ul align-text>
+                        <n-li>
                             Contacts
-                        </li>
-                        <li>
+                        </n-li>
+                        <n-li>
                             Our addresses
-                        </li>
-                        <li>
+                        </n-li>
+                        <n-li>
                             Become a Times Square franchisee
-                        </li>
-                    </ul>
+                        </n-li>
+                    </n-ul>
                 </n-gi>
                 <n-gi>
                     <h3 class="text-lg font-semibold mb-3">
