@@ -6,7 +6,7 @@ import Subtitle from '@/components/ui/Subtitle.vue';
 </script>
 
 <template>
-    <Section id="franchise">
+    <Section id="franchise" class="pb-10">
         <div class="flex flex-col items-center">
             <Subtitle class="max-w-2xl mx-auto">
                 Start The Adventure Today And Become a Franchisee
