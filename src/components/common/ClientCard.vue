@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { QuoteLeft } from '@vicons/fa'
 import { StarRound, } from '@vicons/material'
-import { NAvatar, NFlex, NIcon } from 'naive-ui'
 
 interface Data {
     name: string
