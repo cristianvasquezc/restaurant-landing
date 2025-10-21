@@ -6,7 +6,7 @@ import Subtitle from '@/components/ui/Subtitle.vue';
 </script>
 
 <template>
-    <Section id="welcome" class="bg-white py-10">
+    <Section class="bg-white py-10">
         <Subtitle class="text-black">
             For more Support
         </Subtitle>
