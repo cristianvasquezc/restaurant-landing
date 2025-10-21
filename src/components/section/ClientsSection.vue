@@ -60,7 +60,7 @@ const clients: Client[] = [
 <template>
     <Section>
         <Subtitle class="mb-10">
-            We believe in making quality food
+            What Our Clients Are Saying
         </Subtitle>
 
         <n-grid x-gap="20" y-gap="20" cols="1 s:3" responsive="screen" class="text-white">
