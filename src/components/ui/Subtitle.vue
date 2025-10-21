@@ -3,7 +3,6 @@ import { twMerge } from 'tailwind-merge';
 import { computed } from 'vue';
 
 const props = defineProps<{
-    text?: string
     align?: 'left' | 'center' | 'right'
     class?: string
 }>()
@@ -19,6 +18,6 @@ const subtitleClass = computed(() =>
 
 <template>
     <h2 :class="subtitleClass">
-        <slot>{{ text }}</slot>
+        <slot />
     </h2>
 </template>
