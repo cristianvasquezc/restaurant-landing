@@ -11,7 +11,9 @@ const showModal = ref(false)
 
 <template>
     <Section id="welcome">
-        <Subtitle text="Why We Are the Best Food Makers" />
+        <Subtitle>
+            Why We Are the Best Food Makers
+        </Subtitle>
         <p class="text-lg text-center text-white mb-10 max-w-2xl mx-auto">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem scrambled it to make a type
             specimen book.
