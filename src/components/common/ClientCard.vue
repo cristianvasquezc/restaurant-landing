@@ -27,9 +27,10 @@ const props = defineProps<{
                 <p class="leading-none">
                     {{ props.data.role }}
                 </p>
-                <div class="flex text-orange-400">
-                    <n-icon v-for="i in 5" :key="i">
-                        <StarRound v-if="i <= props.data.rating" />
+                <div class="flex">
+                    <n-icon v-for="i in 5" :key="i" class="transition-colors duration-200"
+                        :class="i <= props.data.rating ? 'text-orange-400' : 'text-gray-400 opacity-50'">
+                        <StarRound />
                     </n-icon>
                 </div>
             </n-flex>
