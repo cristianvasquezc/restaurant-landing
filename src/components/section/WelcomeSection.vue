@@ -10,7 +10,7 @@ const showModal = ref(false)
 </script>
 
 <template>
-    <Section id="welcome">
+    <Section id="welcome" class="pb-10">
         <Subtitle>
             Why We Are the Best Food Makers
         </Subtitle>
