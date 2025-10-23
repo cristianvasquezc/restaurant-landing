@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import logo from '@/assets/Logo.svg'
-import { SearchRound, ShoppingCartRound } from '@vicons/material'
+import { MenuRound, SearchRound, ShoppingCartRound } from '@vicons/material'
 import { Icon } from '@vicons/utils'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -16,6 +16,8 @@ const navLinks = [
 ]
 
 const activeSection = ref<string>('welcome')
+const menuOpen = ref(false)
+const scrolled = ref(false)
 
 const handleNavClick = async (link: { to: string; type: string }) => {
     if (link.type === 'route') {
@@ -54,14 +56,29 @@ onMounted(() => {
         }
     })
 
+    const onScroll = () => {
+        scrolled.value = window.scrollY > 50
+    }
+
+    window.addEventListener('scroll', onScroll)
+
     onBeforeUnmount(() => observer.disconnect())
 })
 </script>
 
 <template>
-    <nav class="w-full bg-black text-white flex justify-center py-2 px-5 sticky top-0 z-50">
-        <n-flex class="w-full max-w-6xl" justify="space-between" align="center">
-            <n-flex>
+    <nav :class="[
+        'w-full fixed top-0 left-0 right-0 z-50 transition-colors duration-300',
+        scrolled || menuOpen ? 'bg-black' : 'bg-transparent md:bg-black'
+    ]" class="text-white py-2 px-5">
+        <div class="flex justify-between items-center max-w-6xl mx-auto py-2 px-5">
+            <button class="md:hidden" @click="menuOpen = !menuOpen">
+                <Icon size="24">
+                    <MenuRound />
+                </Icon>
+            </button>
+
+            <div class="hidden md:flex space-x-6">
                 <button v-for="link in navLinks" :key="link.to" @click="handleNavClick(link)" class="transition-colors"
                     :class="[
                         link.type === 'id' && activeSection === link.to
@@ -70,13 +87,13 @@ onMounted(() => {
                     ]">
                     {{ link.label }}
                 </button>
-            </n-flex>
+            </div>
 
             <div class="w-14">
                 <img :src="logo" alt="Restaurant logo" />
             </div>
 
-            <n-flex align="center">
+            <n-flex align="center" size="large">
                 <RouterLink to="/cart" v-slot="{ isActive }">
                     <n-badge :value="2">
                         <Icon :class="isActive ? 'text-white' : 'text-white'" size="24">
@@ -85,16 +102,26 @@ onMounted(() => {
                     </n-badge>
                 </RouterLink>
 
-                <n-button quaternary circle>
-                    <n-icon class="text-2xl text-white">
+                <button class="hidden md:block">
+                    <Icon size="24">
                         <SearchRound />
-                    </n-icon>
-                </n-button>
+                    </Icon>
+                </button>
 
-                <n-button round color="white" text-color="black">
+                <RouterLink to="" class="bg-white text-black px-5 rounded-full py-1.5 hidden md:block">
                     Become a Member
-                </n-button>
+                </RouterLink>
             </n-flex>
-        </n-flex>
+        </div>
+
+        <div v-if="menuOpen" class="md:hidden">
+            <div class="flex flex-col space-y-2 px-5 pb-4">
+                <button v-for="link in navLinks" :key="link.to" @click="handleNavClick(link)"
+                    class="text-gray-300 hover:text-white text-left"
+                    :class="link.type === 'id' && activeSection === link.to ? 'text-white font-semibold' : ''">
+                    {{ link.label }}
+                </button>
+            </div>
+        </div>
     </nav>
 </template>
