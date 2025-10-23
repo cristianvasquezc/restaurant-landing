@@ -55,18 +55,18 @@ const setActiveCategory = (category: string) => {
 
 <template>
     <Section id="menu" class="pb-10">
-        <Subtitle class="mb-10">
+        <Subtitle class="mb-5">
             Our Best & Delicious Menu
         </Subtitle>
 
-        <n-flex align="center" justify="space-between" class="mb-10">
+        <div class="flex items-center justify-between flex-nowrap overflow-x-auto mb-5 py-5">
             <button v-for="category in categories" :key="category"
-                class="rounded-lg text-white px-3.5 transition-colors" :class="{
+                class="rounded-lg text-white px-3.5 transition-colors whitespace-nowrap" :class="{
                     'border-b-2 border-white': activeCategory === category
                 }" @click="setActiveCategory(category)">
                 {{ category }}
             </button>
-        </n-flex>
+        </div>
 
         <n-grid x-gap="20" y-gap="20" cols="1 s:3" responsive="screen" class="text-white">
             <n-gi v-for="(food, index) in foods" :key="index">
