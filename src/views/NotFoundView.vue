@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router';
             <h1 class="text-7xl font-bold">404</h1>
             <n-p>Page not found</n-p>
 
-            <RouterLink to="/">
+            <RouterLink :to="{ name: 'home' }">
                 <n-button round color="white" text-color="black">
                     Go back home
                 </n-button>
