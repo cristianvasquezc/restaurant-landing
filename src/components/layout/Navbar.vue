@@ -9,22 +9,26 @@ const router = useRouter()
 const route = useRoute()
 
 const navLinks = [
-    { label: 'Welcome', to: 'welcome' },
-    { label: 'Our Menu', to: 'menu' },
-    { label: 'Franchise', to: 'franchise' },
-    { label: 'Contact', to: 'contact' }
+    { label: 'Welcome', to: 'welcome', type: 'id' },
+    { label: 'Our Menu', to: 'menu', type: 'id' },
+    { label: 'Franchise', to: 'franchise', type: 'id' },
+    { label: 'Contact', to: '/contact', type: 'route' }
 ]
 
 const activeSection = ref<string>('welcome')
 
-const scrollTo = async (id: string) => {
-    if (route.path !== '/') {
-        await router.push('/')
-        setTimeout(() => {
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-        }, 300)
-    } else {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+const handleNavClick = async (link: { to: string; type: string }) => {
+    if (link.type === 'route') {
+        router.push(link.to)
+    } else if (link.type === 'id') {
+        if (route.path !== '/') {
+            await router.push('/')
+            setTimeout(() => {
+                document.getElementById(link.to)?.scrollIntoView({ behavior: 'smooth' })
+            }, 300)
+        } else {
+            document.getElementById(link.to)?.scrollIntoView({ behavior: 'smooth' })
+        }
     }
 }
 
@@ -44,8 +48,10 @@ onMounted(() => {
     )
 
     navLinks.forEach((link) => {
-        const el = document.getElementById(link.to)
-        if (el) observer.observe(el)
+        if (link.type === 'id') {
+            const el = document.getElementById(link.to)
+            if (el) observer.observe(el)
+        }
     })
 
     onBeforeUnmount(() => observer.disconnect())
@@ -56,9 +62,9 @@ onMounted(() => {
     <nav class="w-full bg-black text-white flex justify-center py-2 px-5 sticky top-0 z-50">
         <n-flex class="w-full max-w-6xl" justify="space-between" align="center">
             <n-flex>
-                <button v-for="link in navLinks" :key="link.to" @click="scrollTo(link.to)" class="transition-colors"
+                <button v-for="link in navLinks" :key="link.to" @click="handleNavClick(link)" class="transition-colors"
                     :class="[
-                        activeSection === link.to
+                        link.type === 'id' && activeSection === link.to
                             ? 'text-white font-semibold'
                             : 'text-gray-300 hover:text-white'
                     ]">
