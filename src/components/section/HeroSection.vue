@@ -1,5 +1,5 @@
 <template>
-    <section class="relative text-white h-[calc(100vh-71px)]">
+    <section class="relative text-white h-screen">
         <img src="@/assets/images/background.webp" alt="Background"
             class="absolute inset-0 w-full h-full object-cover object-center" />
 
