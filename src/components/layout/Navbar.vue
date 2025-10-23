@@ -71,7 +71,7 @@ onMounted(() => {
         'w-full fixed top-0 left-0 right-0 z-50 transition-colors duration-300',
         scrolled || menuOpen ? 'bg-black' : 'bg-transparent md:bg-black'
     ]" class="text-white py-2 px-5">
-        <div class="flex justify-between items-center max-w-6xl mx-auto py-2 px-5">
+        <div class="flex justify-between items-center max-w-6xl mx-auto">
             <button class="md:hidden" @click="menuOpen = !menuOpen">
                 <Icon size="24">
                     <MenuRound />
@@ -115,7 +115,7 @@ onMounted(() => {
         </div>
 
         <div v-if="menuOpen" class="md:hidden">
-            <div class="flex flex-col space-y-2 px-5 pb-4">
+            <div class="flex flex-col space-y-2 px-4 pb-4">
                 <button v-for="link in navLinks" :key="link.to" @click="handleNavClick(link)"
                     class="text-gray-300 hover:text-white text-left"
                     :class="link.type === 'id' && activeSection === link.to ? 'text-white font-semibold' : ''">
